@@ -61,9 +61,9 @@ function newMember(){
                 });
         }
     })
-}
+};
 
-function init() {
+function init(){
     inquirer
   .prompt(managerQuestions)
   .then(function(data) {
@@ -72,10 +72,59 @@ function init() {
         employees.push(manager);
         newMember();
     });
-  };
+};
 
-function internQuestions(){};
-function engineerQuestions(){};
+function internQuestions(){
+    inquirer
+  .prompt([{
+       message: "What is your intern's name?",
+       name: "name"
+      },
+       {
+        message: "What is your intern's id?",
+        name: "id"
+      },
+       {
+        message: "What is your intern's email",
+        name: "email"
+      },
+       {
+        message: "What is your intern's school",
+        name: "school"
+      },
+    ]).then(function(data) {
+        let intern = new Intern(data.name, data.id, data.email, data.school);
+        console.log(intern);
+        employees.push(intern);
+        newMember();
+        });
+};
+
+function engineerQuestions(){
+    inquirer
+  .prompt([{
+       message: "What is your engineer's name?",
+       name: "name"
+      },
+       {
+        message: "What is your engineer's id?",
+        name: "id"
+      },
+       {
+        message: "What is your engineer's email",
+        name: "email"
+      },
+       {
+        message: "What is your engineer's GitHub username",
+        name: "github"
+      },
+    ]).then(function(data) {
+        let engineer = new Engineer(data.name, data.id, data.email, data.github);
+        console.log(engineer);
+        employees.push(engineer);
+        newMember();
+        });
+};
   
 init();
 // After the user has input all employees desired, call the `render` function (required
