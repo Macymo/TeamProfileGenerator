@@ -26,6 +26,6 @@
     "validator": "^13.0.0"
   },
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^29.7.0"
   }
 }
